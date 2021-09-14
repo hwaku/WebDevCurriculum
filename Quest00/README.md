@@ -1,35 +1,60 @@
 # Quest 00. 형상관리 시스템
 
-## Introduction
-* git은 2021년 현재 개발 생태계에서 가장 각광받고 있는 버전 관리 시스템입니다. 이번 퀘스트를 통해 git의 기초적인 사용법을 알아볼 예정입니다.
-
-## Topics
-* git
-  * `git clone`, `git add`, `git commit`, `git push`, `git pull`, `git branch`, `git stash` 명령
-  * `.git` 폴더
-* GitHub
-
-## Resources
-* [Resources to learn Git](https://try.github.io)
-* [Learn Git Branching](https://learngitbranching.js.org/?locale=ko)
-* [Inside Git: .Git directory](https://githowto.com/git_internals_git_directory)
+## 형상관리 시스템은 왜 나오게 되었을까요?
 
 ## Checklist
-* 형상관리 시스템은 왜 나오게 되었을까요?
-* git은 어떤 형상관리 시스템이고 어떤 특징을 가지고 있을까요? 분산형 형상관리 시스템이란 무엇일까요?
-  * git은 어떻게 개발되게 되었을까요? git이 분산형 시스템을 채택한 이유는 무엇일까요?
-* git과 GitHub은 어떻게 다를까요?
-* git의 clone/add/commit/push/pull/branch/stash 명령은 무엇이며 어떨 때 이용하나요? 그리고 어떻게 사용하나요?
-* git의 Object, Commit, Head, Branch, Tag는 어떤 개념일까요? git 시스템은 프로젝트의 히스토리를 어떻게 저장할까요?
-* 리모트 git 저장소에 원하지 않는 파일이 올라갔을 때 이를 되돌리려면 어떻게 해야 할까요?
+Q. 형상관리 시스템은 왜 나오게 되었을까요?
+  
+A. 
+
+Q. git은 어떤 형상관리 시스템이고 어떤 특징을 가지고 있을까요? 분산형 형상관리 시스템이란 무엇일까요?
+  
+A. Git은 분산관리 시스템을 적용하고 있습니다.
+- 분산관리 시스템이란?
+  - 다른 버전관리 시스템처럼 파일을 저장하는 서버가 있는 것은 동일하지만 수정을 위해 프로젝트 전체를 로컬에 다운 받은 뒤 수정한다.  
+  
+
+- 분산관리 시스템의 특징
+  - 클라이언트가 파일들의 마지막 스냅샷을 가져오는 대신, 저장소를 통째 로 복사한다.
+  - 만약 중앙서버가 다운되더라도 개발 작업자들은 작업이 가능하며 서버에 문제가 생겨도 클라이언트에서 다운받은
+    복제물을 통해 복원 가능하다 :)
+  
+Q. git은 어떻게 개발되게 되었을까요? git이 분산형 시스템을 채택한 이유는 무엇일까요?
+  
+A. BitKeeper의 저작권 보유자 래리 맥보이(Larry McVoy)는 앤드루 트리젤이 비트키퍼 프로토콜을 리버스 엔지니어링했다고 주장한 이후 제품의 자유 이용을 철회했다.
+BitKeeper를 제한당하고 대체할 기존 툴이 없었기에 Git을 개발하게 되었다.
+  
+A. 분산형 시스템을 채택한 이유는 여러가지로 예상된다.  
+
+- 기존에 사용했던 BitKeeper를 알아보자.
+- BitKeeper는 분산 버전 관리 시스템 방식이며, 속도가 빠른게 장점이다.
+- 여러 장점이 많은 분산 버전 관리 시스템을 기존에 이용해봤기에 쓰던 방식 그대로 적용하여 개발하지 않았을까 생각된다.
+- Git의 개발자가 개발한 리눅스의 특징중 하나는 다른 운영체계보다 비교적 적은 양의 메모리로 운영이 가능하다는 점이다.
+- 적은 양의 메모리로 운영이 가능하다는 뜻은 경량화가 잘 되어있어 개발하는데 시간을 단축할 수 있다는 이점이 있다고 생각한다.
+- 개인적 견해로 생각했을때 리눅스를 위해 버전 관리 시스템을 만들어야한다면 리눅스의 특징과 잘 맞게 개발할 거 같다. 실제로 GIt에서 branch를 사용할때 매우 가볍고 쉽다고한다.
+  
+Q. git과 GitHub은 어떻게 다를까요?
+  
+A. Git은 버전관리 시스템이고 GitHub는 Git을 저장할 수 있는 원격 저장소이다.
+  
+Q. clone/add/commit/push/pull/branch/stash 명령은 무엇이며 어떨 때 이용하나요? 그리고 어떻게 사용하나요?
+Q. git의 Object, Commit, Head, Branch, Tag는 어떤 개념일까요? git 시스템은 프로젝트의 히스토리를 어떻게 저장할까요?
+  
+A. [이곳을 참고해주세요.] (https://github.com/hwaku/TIL/blob/main/2021/09/13/2021-09-13.md "2021-09-14.md")
+
+Q. 리모트 git 저장소에 원하지 않는 파일이 올라갔을 때 이를 되돌리려면 어떻게 해야 할까요?
+  
+A. git rm --cached 명령어를 통해 원격저장소에 파일을 삭제할 수 있으며, git rm <파일명> 명령어를 이용하면 로컬, 원격저장소 모두 파일이 삭제된다.
 
 ## Quest
-* GitHub에 가입한 뒤, [이 커리큘럼의 GitHub 저장소](https://github.com/KnowRe-Dev/WebDevCurriculum)의 우상단의 Fork 버튼을 눌러 자신의 저장소에 복사해 둡니다.
-* Windows의 경우 같이 설치된 git shell을, MacOSX의 경우 터미널을 실행시켜 커맨드라인에 들어간 뒤, 명령어를 이용하여 복사한 저장소를 clone합니다.
-  * 앞으로의 git 작업은 되도록 커맨드라인을 통해 하는 것을 권장합니다.
-* 이 문서가 있는 폴더 바로 밑에 있는 sandbox 폴더에 파일을 추가한 후 커밋해 보기도 하고, 파일을 삭제해 보기도 하고, 수정해 보기도 하면서 각각의 단계에서 커밋했을 때 어떤 것들이 저장되는지를 확인합니다.
-* `clone`/`add`/`commit`/`push`/`pull`/`branch`/`stash` 명령을 충분히 익혔다고 생각되면, 자신의 저장소에 이력을 push합니다.
+* 완료
 
 ## Advanced
-* Mercurial은 어떤 형상관리 시스템일까요? 어떤 장점이 있을까요?
-* 실리콘밸리의 테크 대기업들은 어떤 형상관리 시스템을 쓰고 있을까요?
+Q. Mercurial은 어떤 형상관리 시스템일까요? 어떤 장점이 있을까요?
+  
+A. [깃과 Mercurial 비교] (https://www.javatpoint.com/git-vs-mercurial)  
+  
+Q. 실리콘밸리의 테크 대기업들은 어떤 형상관리 시스템을 쓰고 있을까요?
+  
+A. 마이크로소프트, 화웨이, 애플, 아마존, LG 등 기업은 Git을 사용하며 Mercurial은 구글, 페이스북의 기업 등이 사용한다고 확인된다.
+[출처] (https://en.wikipedia.org/wiki/Comparison_of_version-control_software)
