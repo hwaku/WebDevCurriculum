@@ -1,207 +1,144 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-	<!-- 모바일 버전 네이버앱이기때문에 접속한 기기 화면에 너비를 맞추고 사용자가 확대/축소 불가하게 만듬 -->
-
-	<!-- TODO: 또 무엇이 필요할까요? -->
-	<style>
-			.all{
-				margin-top:100px;
-				background-color:#f4f6f8;
-			}
-			header	h1{
-				font-size : 56px;
-				color : #03c75a;
-				font-weight:10000;
-				bottom-padding:10px;
-				margin-bottom:-1px;
-			}
-
-			header input{
-				border:1px white;
-				float:left;
-				width:385px;
-				height:21px;
-			}
-
-			.mainbox{
-				width: 500px;
-				text-align:center;
-				margin: 0 auto;
-			}
-
-			#headerCss{
-				border : 1px solid #1fd771;
-				border-radius:3px;
-				margin: 10px;
-				height:24px;
-				background-color:white;
-			}
-
-			#searchIcon{
-				float:right;
-				margin-right:5px;
-			}
-
-			#mainIcon{
-				margin-bottom:100px;
-			}
-
-			.liveCam{
-				border-radius:3px;
-				margin:10px;
-				background-color:white;
-			}
-
-			#weader{
-				background-color:white;
-				margin:10px;
-				border-radius:3px;
-			}
-
-			.styleDiv{
-				border-radius:3px;
-				margin:10px;
-				background-color:white;
-				align:center;
-				height:40px;
-			}
-
-			.styleDiv	p{
-				line-height:40px;
-			}
-
-			.footerSl	p{
-				font-size:5px;
-			}
-
-			#topicon1{
-				position: absolute; top: 20px; left:20px;
-				width:24px;
-				height:24px;
-			}
-
-			#topicon2{
-				position: absolute; top: 20px; right:20px;
-				width:200px;
-				height:24px;
-			}
-			li{
-				display:inline-block;
-			}
-
-			a{
-				color:black;
-				text-decoration:none;
-			}
-		</style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
 </head>
-<body class="all">
-<div class="mainbox">
-	<header>
-		<div>
-			<img src="images/tripleline.png" id="topicon1" alt=현재날씨>
-			<img src="images/rightimage.png" id="topicon2" alt=현재날씨>
-		</div>
-		<div>
-			<h1>NAVER</h1>
-		</div>
-		<div id="headerCss">
-			<span>
-			<input type="text">
-			</span>
-			<span id="searchIcon">
-			<img src="images/mic.png" width="24" height="24" alt="마이크">
-			<img src="images/lens.png" width="24" height="24" alt="렌즈">
-			<img src="images/map.png" width="24" height="24" alt="지도">
-			</span>
-		</div>
-	</header>
-	<section class="main">
-		<!-- TODO: main은 어떤 식으로 나눌 수 있을까요? -->
-		<div id = mainIcon>
-			<img src="images/lens.png" alt=뉴스판 align=bottom>
-			<img src="images/lens.png" alt=경제지표판>
-			<img src="images/lens.png" alt=연예판>
-			<img src="images/lens.png" alt=트렌드판>
-			<br>
-			<img src="images/lens.png" alt=메일>
-			<img src="images/lens.png" alt=카페>
-			<img src="images/lens.png" alt=블로그>
-			<img src="images/lens.png" alt=기타>
-		</div>
-		<div class="liveCam">
-			<table>
-				<colgroup>
-					<col style="width:250px;">
-					<col style="width:250px;">
-				</colgroup>
-				<tr>
-					<th><img src="images/lens.png" align="left" alt=현재날씨></th>
-					<th><img src="images/lens.png" align="left" alt=현재날씨></th>
-				</tr>
-			</table>
-		</div>
-		<div id="weader">
-			<div>
-				<p> 날씨 </p>
-			</div>
-			<div>
+<body>
+<div>
+    <nav>
+        <button type="button" onclick="location.href='https://m.naver.com/aside/'">
+            <img src="images/tripleline.png" alt="메뉴 바">
+        </button>
+        <a href="https://nid.naver.com/login/privacyQR">
+            <img src="images/QR.png" alt="QR 체크인">
+        </a>
+        <a href="https://new-m.pay.naver.com/">
+            <img src="images/Npay.png" alt="네이버페이">
+        </a>
+        <button type="button">
+            <img src="images/box.png" alt="서랍">
+        </button>
+    </nav>
+    <header>
+        <div>
+            <h1>NAVER</h1>
+        </div>
+        <div>
+            <input type="text">
+            <button type="button">
+                <img src="images/mic.png" width="24" height="24" alt="마이크">
+            </button>
+            <button type="button">
+                <img src="images/lens.png" width="24" height="24" alt="렌즈">
+            </button>
+            <a href="https://map.naver.com/">
+                <img src="images/map.png" width="24" height="24" alt="지도">
+            </a>
+        </div>
+    </header>
+    <section class="main">
+        <div>
+            <a href="https://m.naver.com/naverapp/?version=3&cmd=onMenu&menuCode=NEWS&showToast=true">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2021/0426/upload_16194098442401MHsE.png" alt=뉴스판>
+                <span>뉴스판</span>
+            </a>
+            <a href="https://m.naver.com/naverapp/?cmd=onMenu&menuCode=ENT&showConfirm=false">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2021/0426/upload_16194099359615PPET.png" alt=쇼핑판>
+                <span>쇼핑판</span>
+            </a>
+            <a href="https://m.naver.com/naverapp/?version=3&cmd=onMenu&menuCode=DATA&showToast=true">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2021/0426/upload_16194098613516y6da.png" alt=경제지표판>
+                <span>경제지표판</span>
+            </a>
+            <a href="https://m.naver.com/naverapp/?version=3&cmd=onMenu&menuCode=SPORTS&showToast=true">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2021/0426/upload_161940990062833vIT.png" alt=스포츠판>
+                <span>스포츠판</span>
+            </a>
+            <a href="https://m.mail.naver.com/">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2020/0319/mobile_19411917574.png" alt=메일>
+                <span>메일</span>
+            </a>
+            <a href="https://m.cafe.naver.com/">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2020/0319/mobile_191015178706.png" alt=카페>
+                <span>카페</span>
+            </a>
+            <a href="https://m.blog.naver.com/">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2020/0319/mobile_181505455420.png" alt=블로그>
+                <span>블로그</span>
+            </a>
+            <a href="https://m.naver.com/services.html">
+                <img src="https://s.pstatic.net/static/www/mobile/edit/2021/0427/upload_1619497854375Q53rw.png" alt=더보기>
+            </a>
+        </div>
+        <div>
+            <div>
+                <p>날씨관련 메뉴</p>
+            </div>
+            <div>
+                <p>NOW 방송리스트</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p> 날씨 </p>
+            </div>
+            <div>
 					<span>
-						<p> 날씨 메뉴 </p>
+						날씨 메뉴
 					</span>
-			</div>
-			<div>
-				<p> 여러 날씨~^_^ </p>
-			</div>
-		</div>
-		<div class="liveCam">
-			<table>
-				<colgroup>
-					<col style="width:250px;">
-					<col style="width:250px;">
-				</colgroup>
-				<tr>
-					<th><img src="images/lens.png" align="left" alt="코로나19 국내외 확진 현황"></th>
-					<th><img src="images/lens.png" align="left" alt="코로나19 팩트체크 백신 정보 팩트는?"></th>
-				</tr>
-			</table>
-		</div>
-		<div class="styleDiv">
-			<p>제102주년 대한민국 임시정부 수립일</p>
-		</div>
-		<div class="liveCam">
-			<p> 웹툰 </p>
-		</div>
-		<div class="liveCam">
-			<p> 인기 주제 판을 확인해 보세요! </p>
-		</div>
-		<div class="liveCam">
-			<p> 네이버 앱 업데이트 사전 안내 </p>
-		</div>
-	</section>
-	<footer class="footerSl">
-		<!-- TODO: 하단의 여러 가지 링크들은 어떻게 처리하면 좋을까요? -->
-		<div>
-			<nav>
-				<ul>
-					<li><a href="https://m.naver.com/#">로그인</a></li>
-					<li style="border-right:1px solid black; border-left:1px solid black; padding:0 5px;"><a href="https://m.naver.com/services.html">전체서비스</a></li>
-					<li><a href="http://www.naver.com/?mobile">PC버전</a></li>
-				</ul>
-				<ul>
-					<li><a href="http://nid.naver.com/mobile/user/help/termAgree.nhn?m=viewTermAgree1">이용약관</a></li>
-					<li style="border-right:1px solid black; border-left:1px solid black; padding:0 5px;"><a href="http://nid.naver.com/mobile/user/help/termAgree.nhn?m=viewTermAgree3">개인정보처리방침</a></li>
-					<li><a href="https://m.help.naver.com/support/index.nhn">고객센터</a></li>
-				</ul>
-			</nav>
-		</div>
-		<div>
-			<a href="https://www.navercorp.com/" style="margin-bottom:50px; margin-top:10px; font-size:18px;"><b> NAVER </b></a>
-		</div>
-	</footer>
+            </div>
+            <div>
+                <p> 여러 날씨~^_^ </p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>코로나 19 관련</p>
+            </div>
+            <div>
+                <p>코로나 19 팩트체크</p>
+            </div>
+        </div>
+        <div>
+            <p>제102주년 대한민국 임시정부 수립일</p>
+        </div>
+        <div>
+            <p>네이버 앱 관련 안내</p>
+        </div>
+        <div>
+            <p> 웹툰 </p>
+        </div>
+        <div>
+            <ul>
+                <li>인기 주제 판을 확인해 보세요!</li>
+                <li>판관리</li>
+                <li>영화판</li>
+                <li>뿜판</li>
+                <li>웹툰판</li>
+                <li>경제판</li>
+            </ul>
+        </div>
+        <div>
+            <p> 네이버 앱 업데이트 사전 안내 </p>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <a href="https://m.naver.com/#">로그인</a>
+            <a href="https://m.naver.com/services.html">전체서비스</a>
+            <a href="http://www.naver.com/?mobile">PC버전</a>
+        </div>
+        <div>
+            <a href="http://nid.naver.com/mobile/user/help/termAgree.nhn?m=viewTermAgree1">이용약관</a>
+            <a href="http://nid.naver.com/mobile/user/help/termAgree.nhn?m=viewTermAgree3">개인정보처리방침</a>
+            <a href="https://m.help.naver.com/support/index.nhn">고객센터</a>
+        </div>
+        <div>
+            <a href="https://www.navercorp.com/"><b> NAVER </b></a>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
