@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .square {
+            width: 100px;
+            height: 100px;
+            border: 1px dashed black;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .enabled {
+            background-color: limegreen;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<section class="row1">
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+</section>
+
+<section class="row2">
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+</section>
+
+<script>
+    // let row2Squares = document.querySelectorAll('.row2 .square');
+    // for(let node of row2Squares) {
+    //     node.addEventListener("click",() => {
+    //         if(node.classList.contains('enabled')) {
+    //             node.classList.remove('enabled');
+    //         }else{
+    //             node.classList.add('enabled');
+    //         }
+    //     });
+    // }
+
+    let row2Squares = document.querySelectorAll('.row2 .square');
+    for(let node of row2Squares) {
+        node.addEventListener("click",() => {
+            node.classList.toggle('enabled');
+        });
+    }
+
+    var row2Squares = document.querySelectorAll('.row2 .square');
+    for(var node of row2Squares) {
+        node.addEventListener("click",function () {
+            this.classList.toggle('enabled');
+        });
+    }
+</script>
+</body>
+</html>
