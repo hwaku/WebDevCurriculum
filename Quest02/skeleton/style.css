@@ -1,6 +1,6 @@
 *{
-    padding:0px;
-    margin:0px;
+    padding:0;
+    margin:0;
     background-color:#eaf1f7;
     list-style:none;
     box-sizing: border-box;
@@ -9,9 +9,7 @@
 }
 
 body{
-    margin-top:100px;
-    margin:0px;
-    padding:0px;
+    padding:0;
 }
 
 nav{
@@ -46,7 +44,6 @@ nav img{
 header  h1{
     font-size : 56px;
     color : #03c75a;
-    bottom-padding:10px;
     margin-bottom:10px;
 }
 
@@ -104,7 +101,7 @@ button{
 
 .main_menu  a{
     width:85px;
-    height:75;
+    height:75px;
     margin:0 auto;
     margin-top:20px;
 }
