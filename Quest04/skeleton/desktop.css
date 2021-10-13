@@ -1,1 +1,54 @@
 /* TODO: 자유롭게 바탕화면 시스템의 CSS를 만들어 보세요! */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration:none;
+}
+
+.desktop-div{
+    padding: 1em;
+    width: 1080px;
+    height: 720px;
+    background-color: #d7f5ed;
+}
+
+.folder-div{
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    z-index: 10;
+    width: 10em;
+    height: 10em;
+    background: floralwhite;
+    border: 2px solid #58b3bf;
+    display: none;
+}
+
+.fas{
+    color: pink;
+    font-size: 30px;
+    padding: 6px;
+}
+
+.fas:hover{
+    background: paleturquoise;
+}
+
+.fas div{
+    position: absolute;
+    left: 0.5em;
+    top: 1.9em;
+}
+
+.close-Button{
+    border-bottom: 2px solid #58b3bf;
+    display: flex;
+    justify-content: right;
+}
+
+.fa-times{
+    font-size: 18px;
+    padding: 3px 5px;
+}
