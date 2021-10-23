@@ -1,3 +1,157 @@
 * {
-	/* TODO: 필요한 CSS를 채워넣어 보세요! */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration:none;
+}
+
+body, html{
+    background: honeydew;
+    width: 100%;
+    height: 100%;
+}
+
+nav, nav ul{
+    height: 1.5em;
+    background: #404552;
+}
+
+.menu-list{
+    display: none;
+    position: absolute;
+    left: 0.5em;
+    top: 1.9em;
+    background: #585f6e;
+    width: 10em;
+    height: 6.15em;
+    border: 1px solid black;
+    color: white;
+    font-size: 0.8em;
+    cursor: default;
+}
+
+.menu-list li{
+    height: 1.5em;
+    padding-left: 0.5em;
+    padding-top: 0.1em;
+}
+
+.menu-list li:hover{
+    background: #373b40;
+}
+
+.menu-tab{
+    display: flex;
+    justify-content: start;
+    cursor: default;
+    text-align: center;
+}
+
+.menu-tab li{
+    width: auto;
+    border: none;
+    background: #585f6e;
+    color: #e9eef5;
+    margin-left: 0.5em;
+}
+
+.tab{
+    display: block;
+}
+
+.fa-times{
+    color: #c5d0e0;
+    font-size: 16px;
+    align-self: center;
+}
+
+.fa-times:hover{
+    background: #afb8c4;
+}
+
+.newTab{
+    display: flex;
+    font-size: 0.9em;
+}
+
+.newTab:hover{
+    background: #373b40;
+}
+
+.newTab i{
+    width: 16px;
+    height: 16px;
+    margin-right: 0.3em;
+}
+
+.tabText{
+    padding: 0.1em 0.5em;
+}
+
+.save-File{
+    display: none;
+}
+
+.differentName-SaveFile{
+    display: none;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+}
+
+.textarea{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.list-center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30em;
+    display: none;
+    flex-direction: column;
+}
+
+.list-tab{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #404552;
+    color: #e9eef5;
+    height: 2em;
+}
+
+.list-tab p{
+    margin-left: 0.5em;
+    cursor: default;
+}
+
+#file-list-icon{
+    padding: 0 0.1em;
+    margin: 0 0.5em;
+}
+
+.open-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.key-List{
+    display: block;
+    background: #585f6e;
+    color: #e9eef5;
+    padding-left: 0.5em;
+    height: 2em;
+    border: 1px solid #404552;
+    padding-top: 0.2em;
+}
+
+.key-List:hover{
+    background: #a8acb3;
 }
