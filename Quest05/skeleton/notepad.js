@@ -1,5 +1,6 @@
 class Notepad {
     static pTarget;
+
     constructor() {
         const menuTab = document.querySelector('.tab');
         menuTab.addEventListener('click', () => {
@@ -14,6 +15,7 @@ class Notepad {
         this.$editor = document.querySelector("#editor")
         this.makeOpenList();
         this.open();
+        this.differentNameSaveFile();
 
         let openTab = document.querySelector('.menu-tab');
         openTab.addEventListener('click', this.tabChange);
@@ -44,23 +46,51 @@ class Notepad {
                 alert("파일 이름을 입력하세요.")
                 return;
             }
-            const value = document.querySelector('.textarea');
-            localStorage.setItem(input, value.value);
-            Notepad.createTab(input);
-            value.value = "";
+            if (localStorage.length === 0) {
+                Notepad.createTab(input);
+                const value = document.querySelector('.textarea');
+                localStorage.setItem(input, value.value);
+                value.value = "";
 
-            const textarea = document.querySelector('.textarea');
-            textarea.style.display = 'none';
-            const saveFile = document.querySelector('.save-File');
-            saveFile.style.display = 'none';
-            const differentNameSaveFile = document.querySelector('.differentName-SaveFile');
-            differentNameSaveFile.style.display = 'none';
+                const textarea = document.querySelector('.textarea');
+                textarea.style.display = 'none';
+                const saveFile = document.querySelector('.save-File');
+                saveFile.style.display = 'none';
+                const differentNameSaveFile = document.querySelector('.differentName-SaveFile');
+                differentNameSaveFile.style.display = 'none';
 
-            const listFrame = document.querySelector('.open-list');
-            let keyList = document.createElement('li');
-            keyList.setAttribute('class', 'key-List')
-            listFrame.appendChild(keyList);
-            keyList.textContent = input;
+                const listFrame = document.querySelector('.open-list');
+                let keyList = document.createElement('li');
+                keyList.setAttribute('class', 'key-List')
+                listFrame.appendChild(keyList);
+                keyList.textContent = input;
+            } else {
+                for (let i = 0; i < localStorage.length; i++) {
+                    if (input !== localStorage.key(i)) {
+                        Notepad.createTab(input);
+                        const value = document.querySelector('.textarea');
+                        localStorage.setItem(input, value.value);
+                        value.value = "";
+
+                        const textarea = document.querySelector('.textarea');
+                        textarea.style.display = 'none';
+                        const saveFile = document.querySelector('.save-File');
+                        saveFile.style.display = 'none';
+                        const differentNameSaveFile = document.querySelector('.differentName-SaveFile');
+                        differentNameSaveFile.style.display = 'none';
+
+                        const listFrame = document.querySelector('.open-list');
+                        let keyList = document.createElement('li');
+                        keyList.setAttribute('class', 'key-List')
+                        listFrame.appendChild(keyList);
+                        keyList.textContent = input;
+                        break;
+                    } else {
+                        alert('중복된 파일 이름입니다.');
+                    }
+                }
+            }
+
         });
     }
 
@@ -95,7 +125,7 @@ class Notepad {
     }
 
     tabChange(e) {
-        if(Notepad.pTarget && e.target.tagName === "P"){
+        if (Notepad.pTarget && e.target.tagName === "P") {
             Notepad.indicator();
         }
         const targetKey = e.target;
@@ -105,7 +135,7 @@ class Notepad {
             textarea.value = targetValue;
             textarea.style.display = 'block';
         }
-        if(e.target.tagName === "P"){
+        if (e.target.tagName === "P") {
             Notepad.pTarget = targetKey;
         }
     }
@@ -127,6 +157,7 @@ class Notepad {
             mainTab.appendChild(createList);
             Notepad.closeButton(mainTab);
         }
+
     }
 
     open() {
@@ -134,6 +165,8 @@ class Notepad {
         openFileClick.addEventListener('click', () => {
             const list = document.querySelector('.list-center');
             list.style.display = 'flex';
+            const differentName = document.querySelector('.differentName-SaveFile');
+            differentName.style.display = 'block';
         })
 
         const closeBtn = document.querySelector('#file-list-icon');
@@ -165,14 +198,21 @@ class Notepad {
         });
     }
 
-
-    static indicator(){
+    static indicator() {
         const textarea = document.querySelector('.textarea');
 
-            if(localStorage.getItem(Notepad.pTarget.textContent) !== textarea.value) {
-                if(confirm('작업중인 내용이 저장되지 않았습니다. 저장하시겠습니까?')){
-                    localStorage.setItem(Notepad.pTarget.textContent,textarea.value);
-                }
+        if (localStorage.getItem(Notepad.pTarget.textContent) !== textarea.value) {
+            if (confirm('작업중인 내용이 저장되지 않았습니다. 저장하시겠습니까?')) {
+                localStorage.setItem(Notepad.pTarget.textContent, textarea.value);
             }
+        }
+    }
+
+    differentNameSaveFile() {
+        const differentName = document.querySelector('.differentName-SaveFile');
+        differentName.addEventListener('click', () => {
+            this.saveName();
+        });
+
     }
 }
