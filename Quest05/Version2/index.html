@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5604b9b614.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav>
+    <ul class="tab">
+        <li class="menu">메뉴</li>
+    </ul>
+</nav>
+<section>
+    <textarea class="textarea"></textarea>
+</section>
+<ul class="menu-list">
+    <li class="new-File">새 파일</li>
+    <li class="open-File">열기</li>
+    <li class="save-File">저장</li>
+    <li class="differentName-SaveFile">다른 이름으로 저장</li>
+</ul>
+<div class="list-contain">
+    <div class="top-bar">
+        <p>파일 리스트</p>
+        <i class="fas fa-times" id="file-list-icon"></i>
+    </div>
+    <ul class="list"></ul>
+</div>
+<script src="notepad.js"></script>
+<script>
+    let notepad = new Notepad();
+</script>
+</body>
+</html>
