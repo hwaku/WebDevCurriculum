@@ -125,9 +125,11 @@ class Notepad {
     }
 
     tabChange(e) {
+
         if (Notepad.pTarget && e.target.tagName === "P") {
             Notepad.indicator();
         }
+
         const targetKey = e.target;
         if (e.target.classList.contains('newTab') || e.target.tagName === "P") {
             const targetValue = localStorage.getItem(targetKey.textContent);
