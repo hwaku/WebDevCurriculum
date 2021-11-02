@@ -3,10 +3,10 @@ class Notepad {
     static tab = document.querySelector('.tab');
     static textarea = document.querySelector('.textarea');
     static menuList = document.querySelector('.menu-list');
+    static openList = document.querySelector('.open-list');
     static menu = document.querySelector('.menu');
     static body = document.querySelector('body');
     static listContain = document.querySelector('.list-contain');
-    static openFile = document.querySelector('.open-File');
     static saveFile = document.querySelector('.save-File');
     static differentNameSaveFile = document.querySelector('.differentName-SaveFile');
 
@@ -18,6 +18,7 @@ class Notepad {
                     break;
                 case 'newTab':
                     this.tabChange(e);
+                    break;
             }
         });
 
@@ -27,23 +28,24 @@ class Notepad {
                     this.newFile();
                     break;
                 case 'open-File':
-                    this.openFile();
+                    this.open(e);
                     break;
                 case 'save-File':
-                    this.saveFile();
+                    this.save();
                     break;
                 case 'differentName-SaveFile':
-                    this.differentNameSaveFile();
+                    this.differentNameSave();
                     break;
             }
         });
 
         Notepad.body.addEventListener('click', (e) => {
             this.menuControl(e);
-        })
+        });
+
+        this.addOpenList();
     }
 
-    // 새파일
     newFile() {
         this.textReset();
         this.textLook();
@@ -62,13 +64,7 @@ class Notepad {
         this.block(Notepad.saveFile);
     }
 
-    // 다른이름 저장 보기
-    // difNameSaveLook(){
-    //     Notepad.differentNameSaveFile.style.display = 'block';
-    // }
-
-    // 저장
-    saveFile() {
+    save() {
         const name = this.saveName();
 
         this.emptyCheck(name);
@@ -91,11 +87,12 @@ class Notepad {
 
     duplicateCheck(name) {
         if (localStorage.length === 0) {
-            this.save(name);
+            this.saveFile(name);
         } else {
             for (let i = 0; i < localStorage.length; i++) {
                 if (name !== localStorage.key(i)) {
-                    this.save(name);
+                    console.log(localStorage.key(i));
+                    this.saveFile(name);
                     break;
                 } else {
                     alert('중복된 파일 이름입니다.');
@@ -104,15 +101,14 @@ class Notepad {
         }
     }
 
-    save(name) {
-        const openList = document.querySelector('.open-list');
+    saveFile(name) {
         this.createTab(name);
         this.localstorageSave(name);
         this.valueReset();
         this.none(Notepad.textarea);
         this.none(Notepad.saveFile);
         this.none(Notepad.differentNameSaveFile);
-        this.createOpenList(openList, name);
+        this.createOpenList(name);
     }
 
     localstorageSave(name) {
@@ -123,11 +119,20 @@ class Notepad {
         Notepad.textarea.value = '';
     }
 
-    createOpenList(openList, name) {
+    createOpenList(name) {
         const li = this.createLI()
-        this.setAttribute(li, 'class', 'File-list');
-        this.appendChild(openList, li);
+        this.setAttribute(li, 'class', 'file-list');
+        this.appendChild(Notepad.openList, li);
         this.naming(li, name)
+    }
+
+    addOpenList(){
+        for(let i = 0; i < localStorage.length; i++){
+            const li = this.createLI();
+            this.setAttribute(li, 'class', 'file-list');
+            this.appendChild(Notepad.openList, li);
+            li.textContent = localStorage.key(i);
+        }
     }
 
     createLI() {
@@ -148,15 +153,44 @@ class Notepad {
 
     // 열기
 
-    openFile() {
-        this.flex(Notepad.listContain);
+    open() {
+        this.block(Notepad.listContain);
         this.block(Notepad.differentNameSaveFile);
-
+        this.closeList();
+        this.openFile();
+        this.closeOpenList();
     }
 
-    // 다른이름으로 저장
-    differentNameSaveFile() {
+    closeList() {
+        const closeBtn = document.querySelector('#file-list-icon');
+        closeBtn.addEventListener('click', () => {
+            this.none(Notepad.listContain);
+        })
+    }
 
+    openFile() {
+        Notepad.listContain.addEventListener('click', (e) => {
+            if (e.target.tagName === 'LI') {
+                const value = this.targetValue(e);
+                this.pasteTargetValue(value);
+                this.block(Notepad.textarea);
+                this.none(Notepad.listContain);
+                this.createTab(value);
+            }
+        });
+    }
+
+    closeOpenList(){
+        const closeBtn = document.querySelector('.top-bar i')
+        closeBtn.addEventListener('click', (e) => {
+            if(e.target.tagName === 'I'){
+                this.none(e.target.parentElement.parentElement);
+            }
+        })
+    }
+
+    differentNameSave() {
+        this.save();
     }
 
     menuLook() {
@@ -199,7 +233,15 @@ class Notepad {
 
     pTargetCheck(e) {
         if (Notepad.pTarget && e.target.tagName === 'P') {
-            // 인디케이터 넣으셈
+            this.indicator();
+        }
+    }
+
+    indicator(){
+        if(localStorage.getItem(Notepad.pTarget.textContent) !== Notepad.textarea.value){
+            if(confirm('작업중인 내용이 저장되지 않았습니다. 저장하시겠습니까?')){
+                localStorage.setItem(Notepad.pTarget.textContent, Notepad.textarea.value);
+            }
         }
     }
 
@@ -215,7 +257,7 @@ class Notepad {
     }
 
     pasteTargetValue(value) {
-        Notepad.textarea = value;
+        Notepad.textarea.value = value;
     }
 
     targetSave(e, targetKey) {
@@ -232,7 +274,7 @@ class Notepad {
         value.style.display = 'none';
     }
 
-    flex(value){
+    flex(value) {
         value.style.display = 'none';
     }
 }
