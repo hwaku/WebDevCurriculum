@@ -142,22 +142,22 @@ class Notepad {
         }
     }
 
-    makeOpenList() {
-        const listFrame = document.querySelector('.open-list');
+    makeOpenList() { // 얘
+        const listFrame = document.querySelector('.open-list'); // 열기했을때 리스트 부모요소
 
         for (let i = 0; i < localStorage.length; i++) {
-            let keyList = document.createElement('li');
-            keyList.setAttribute('class', 'key-List');
-            listFrame.appendChild(keyList);
-            keyList.textContent = localStorage.key(i);
+            let keyList = document.createElement('li'); // 리스트 파일 한개씩
+            keyList.setAttribute('class', 'key-List'); // 속성 부여
+            listFrame.appendChild(keyList); // 자식으로 넣기
+            keyList.textContent = localStorage.key(i); // li 사이에 제목
 
-            const createList = document.createElement('li');
-            createList.setAttribute('class', 'newTab');
-            createList.style.display = 'none';
-            createList.innerHTML = `<p class="tabText">${localStorage.key(i)}</p>` + '<i class="fas fa-times"></i>';
-            const mainTab = document.querySelector('.menu-tab');
-            mainTab.appendChild(createList);
-            Notepad.closeButton(mainTab);
+            // const createList = document.createElement('li');
+            // createList.setAttribute('class', 'newTab');
+            // createList.style.display = 'none';
+            // createList.innerHTML = `<p class="tabText">${localStorage.key(i)}</p>` + '<i class="fas fa-times"></i>';
+            // const mainTab = document.querySelector('.menu-tab');
+            // mainTab.appendChild(createList);
+            // Notepad.closeButton(mainTab);
         }
 
     }
