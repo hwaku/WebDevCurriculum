@@ -142,7 +142,7 @@ class Notepad {
         }
     }
 
-    makeOpenList() { // 얘
+    makeOpenList() {
         const listFrame = document.querySelector('.open-list'); // 열기했을때 리스트 부모요소
 
         for (let i = 0; i < localStorage.length; i++) {
